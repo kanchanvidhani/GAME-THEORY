@@ -1,0 +1,84 @@
+Jack and Jelly are on the ship en route to discover Atlantis. The distance between their starting point and the city of Atlantis is N kilometers. They take turns manning the ship and each of them can steer the ship for 1, 2 or 4 kilometers in one turn. This should never exceed the remaining distance.
+If Jelly starts as the captain-incharge of the ship, find who will be incharge of the ship when they reach Atlantis.
+
+
+Example 1:
+
+Input: N = 2
+Output: JELLY
+Explaination: Jelly can cover 2 Km 
+in his first turn itself.
+
+Example 2:
+
+Input: N = 3
+Output: JACK
+Explaination: On his first turn Jelly can 
+cover either 1 or 2km. In either case, Jack 
+will cover the remaining distance in his turn.
+ 
+
+Your Task:
+You do not need to read input or print anything. Your task is to complete the function captain() which takes the N as input parameter and returns a string ("JACK" or "JELLY") denoting the name of the final captain.
+
+ 
+
+Expected Time Complexity: O(1)
+Expected Auxiliary Space: O(1)
+
+ 
+
+Constraints:
+1 ≤ N ≤ 107
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+EXPLAINATION:-
+
+ 
+
+Its just boils down to basic number system, Suppose, you and your friend are racing from some number till 0, and when you come to 0 you wanna know who won. Its simple according to rules find who will win if distance=10, because no matter what distance, every thing boils down under 10, and then you make a list that at N=1,2,3,…who won when and now whenever you get a distance N just see the chances of you winning in that list and if you can not divide wholly the distance you will lose GUARANTEED..
+
+ 
+
+ 
+
+FOR EXAMPLE, WHEN JACK AND JELLY WILL RACE FOR
+
+ 
+
+N=1,   JELLY WINS
+
+N=2,   JELLY WINS
+
+N=3,   JACK WINS
+
+N=4,   JELLY WINS
+
+N=5,   JELLY WINS
+
+N=6,   JACK WINS
+
+N=7,   JELLY WINS
+
+N=8,   JELLY WINS
+
+N=9,   JACK WINS
+
+N=10, JELLY WINS
+
+ 
+
+AS WE CAN SEE JACK CAN ONLY WIN 3 TIMES IN THIS, SO HIS CHANCES ARE ONLY 3 AMONG 10 SO NO MATTER WHAT DISTANCE IF YOU CAN'T GET MODULO N%3 EQUALS 0 HE WON'T WIN
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+class Solution{
+    static String captain(int N){
+        // code here
+        
+        if(N%3 ==0){
+            return "JACK";
+        }
+        else{
+            return "JELLY";
+        }
+    }
+}
